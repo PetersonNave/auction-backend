@@ -38,7 +38,7 @@ export class AuctionController {
   }))
   create(@Body() createAuctionDto: CreateAuctionDto,  @Request() req: any, @UploadedFile() file: Express.Multer.File) {
     if (!file) throw new BadRequestException('A imagem do item é obrigatória.');
-    const imageUrl = `http://localhost:3000/uploads/${file.filename}`;
+    const imageUrl = `https://auction-backend-58a558f43ae3.herokuapp.com/uploads/${file.filename}`;
     const userId = req.user.userId;
 
     return this.auctionService.create(createAuctionDto, imageUrl, userId);
